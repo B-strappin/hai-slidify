@@ -11,16 +11,56 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
-## Read-And-Delete
+## Healthcare Associated Infections (HAI)
 
-1. Edit YAML front matters!
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+> - HAIs are among the leading causes of death in the United States. HAIs put the patient at risk for serious injury, morbidity, mortality, increase the days of hospitalization required for patients, and add to healthcare costs. 
+
+> - HAIs are largely preventable using widely publicized guidelines and interventions, such as better hygiene and advanced scientifically tested techniques.
+
+> - If this data was more widely accessible and used by the public, hospitals would likely become much better at reducing the number of infections largely due to increasing market pressure.
 
 --- .class #id 
 
-## Slide 2
+## HAI's cont'd
+
+> - HAI measure data are collected by the Centers for Disease Control and Prevention (CDC) via the National Healthcare Safety Network (NHSN) tool. 
+
+> - Hospitals must enroll and complete NHSN training to comply with CMS’ IQR Program HAI requirements.
+
+> - Hopefully in the future, all hospitals regardless of medicare and medicaid participation will be required to publicize this data as a public health requirement.
+
+---
+
+## What does this App do?
+
+This application allows the user to choose from 6 different types of HAI common in the US, input their zipcode and number of miles as a radius from their town to find hospitals that have the best scores (smallest number) related to the particular HAI type.
+
+---
+
+## Chart example
+
+Unfortunately, this app requires csv files and I could not figure out how to upload these dependencies. However, the following is the code that creates the rCharts plot seen in the shiny app.
+
+To see an example, please visit the app at https://b-strappin.shinyapps.io/shiny_project/
 
 
+```r
+d1 = dPlot(
+    y = "Hospital.Name",
+    x = "Score",
+    groups = "Hospital.Name",
+    data = hospital.list,
+    type = "bar",
+    height=500,
+    width=800,
+    bounds = list(x=300, y=30, width=400, height=400)
+)
+d1$xAxis(type="addMeasureAxis", outputFormat="#,")
+d1$yAxis(type="addCategoryAxis")
+d1
+```
 
+```
+## <iframe src=' assets/fig/unnamed-chunk-1.html ' scrolling='no' frameBorder='0' seamless class='rChart dimple ' id=iframe- chart78713c9afb0d ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style>
+```
 

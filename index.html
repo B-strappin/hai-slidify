@@ -43,14 +43,14 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Read-And-Delete</h2>
+    <h2>Healthcare Associated Infections (HAI)</h2>
   </hgroup>
   <article data-timings="">
-    <ol>
-<li>Edit YAML front matters!</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
-</ol>
+    <ul class = "build incremental">
+<li><p>HAIs are among the leading causes of death in the United States. HAIs put the patient at risk for serious injury, morbidity, mortality, increase the days of hospitalization required for patients, and add to healthcare costs. </p></li>
+<li><p>HAIs are largely preventable using widely publicized guidelines and interventions, such as better hygiene and advanced scientifically tested techniques.</p></li>
+<li><p>If this data was more widely accessible and used by the public, hospitals would likely become much better at reducing the number of infections largely due to increasing market pressure.</p></li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
@@ -58,10 +58,57 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>HAI&#39;s cont&#39;d</h2>
   </hgroup>
   <article data-timings="">
-    
+    <ul class = "build incremental">
+<li><p>HAI measure data are collected by the Centers for Disease Control and Prevention (CDC) via the National Healthcare Safety Network (NHSN) tool. </p></li>
+<li><p>Hospitals must enroll and complete NHSN training to comply with CMS’ IQR Program HAI requirements.</p></li>
+<li><p>Hopefully in the future, all hospitals regardless of medicare and medicaid participation will be required to publicize this data as a public health requirement.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>What does this App do?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This application allows the user to choose from 6 different types of HAI common in the US, input their zipcode and number of miles as a radius from their town to find hospitals that have the best scores (smallest number) related to the particular HAI type.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Chart example</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Unfortunately, this app requires csv files and I could not figure out how to upload these dependencies. However, the following is the code that creates the rCharts plot seen in the shiny app.</p>
+
+<p>To see an example, please visit the app at <a href="https://b-strappin.shinyapps.io/shiny_project/">https://b-strappin.shinyapps.io/shiny_project/</a></p>
+
+<pre><code class="r">d1 = dPlot(
+    y = &quot;Hospital.Name&quot;,
+    x = &quot;Score&quot;,
+    groups = &quot;Hospital.Name&quot;,
+    data = hospital.list,
+    type = &quot;bar&quot;,
+    height=500,
+    width=800,
+    bounds = list(x=300, y=30, width=400, height=400)
+)
+d1$xAxis(type=&quot;addMeasureAxis&quot;, outputFormat=&quot;#,&quot;)
+d1$yAxis(type=&quot;addCategoryAxis&quot;)
+d1
+</code></pre>
+
+<pre><code>## &lt;iframe src=&#39; assets/fig/unnamed-chunk-1.html &#39; scrolling=&#39;no&#39; frameBorder=&#39;0&#39; seamless class=&#39;rChart dimple &#39; id=iframe- chart78713c9afb0d &gt;&lt;/iframe&gt; &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
+</code></pre>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -72,14 +119,26 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Read-And-Delete'>
+        data-slide=1 title='Healthcare Associated Infections (HAI)'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='HAI&#39;s cont&#39;d'>
          2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='What does this App do?'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Chart example'>
+         4
       </a>
     </li>
   </ul>
